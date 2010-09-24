@@ -1,4 +1,9 @@
 Qida::Application.routes.draw do
+  devise_for :users
+
+  resources :incidences
+  root :to => "incidences#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

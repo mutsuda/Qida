@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @incidence.title %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @incidence.location %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @incidence.description %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @incidence.date %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @incidence.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_incidence_path(@incidence) %> |
+<%= link_to 'Back', incidences_path %>
