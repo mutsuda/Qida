@@ -1,34 +1,67 @@
-<h1>Listing incidences</h1>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+	    <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", incidences_path  %></li>
+  		<% if user_signed_in? %>
+  		<li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_incidence_path %></li>
+  		<% end %>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Incidences</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th class="first">ID</th>
+		  <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+		  <th><%= t("web-app-theme.title", :default => "Title")  %></th>
+		  <th><%= t("web-app-theme.location", :default => "Location")  %></th>
+ 		  <th><%= t("web-app-theme.description", :default => "Description")  %></th>
+		  <th><%= t("web-app-theme.status", :default => "Status")  %></th>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Location</th>
-    <th>Description</th>
-    <th>Date</th>
-    <th>Status</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @incidences.each do |incidence| %>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= incidence.id %>
+          </td>
+		  <td>
+            <%= incidence.created_at %>
+          </td>
+           <td>
+            <%= incidence.title %>
+          </td>
+           <td>
+            <%= incidence.location %>
+          </td>
+           <td>
+            <%= incidence.description %>
+          </td>
+           <td>
+            <%= incidence.status %>
+          </td>
+          <% if user_signed_in? %>
 
-<% @incidences.each do |incidence| %>
-  <tr>
-    <td><%= incidence.title %></td>
-    <td><%= incidence.location %></td>
-    <td><%= incidence.description %></td>
-    <td><%= incidence.date %></td>
-    <td><%= incidence.status %></td>
-    <td><%= link_to 'Show', incidence %></td>
-    <td><%= link_to 'Edit', edit_incidence_path(incidence) %></td>
-    <td><%= link_to 'Destroy', incidence, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+          <td class="last">
+                        
+            <%= link_to 'Show', incidence %> |
+ 			<%= link_to 'Edit', edit_incidence_path(incidence) %> | 
+  			<%= link_to 'Delete', incidence, :confirm => 'Are you sure?', :method => :delete %>
+  			
 
-<br />
+            <% end %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
-<% if user_signed_in? %>
-		<%= link_to 'New Incidence', new_incidence_path %>
-<% end %>	
-
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

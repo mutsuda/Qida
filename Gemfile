@@ -7,6 +7,8 @@ gem 'rails', '3.0.0'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'devise', '1.1.3'
+gem "web-app-theme", :git =>"git://github.com/krishna-shilpakar/web-app-theme.git"
+
 
 # Use unicorn as the web server
 # gem 'unicorn'
