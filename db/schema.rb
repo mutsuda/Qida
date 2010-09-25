@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(:version => 20100925112653) do
   end
 
   create_table "incidences", :force => true do |t|
-    t.integer  "user_id"
     t.string   "title"
     t.string   "location"
     t.string   "description"

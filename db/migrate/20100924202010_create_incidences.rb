@@ -1,7 +1,6 @@
 class CreateIncidences < ActiveRecord::Migration
   def self.up
     create_table :incidences do |t|
-      t.integer :user_id
       t.string :title
       t.string :location
       t.string :description
