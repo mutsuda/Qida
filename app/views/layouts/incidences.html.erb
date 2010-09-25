@@ -13,7 +13,6 @@
         <ul class="wat-cf">
           <li><a href="#"><%= t("web-app-theme.profile", :default => "Profile") %></a></li>
           <li><a href="#"><%= t("web-app-theme.settings", :default => "Settings") %></a></li>
-          
           <li><% if user_signed_in? %>
 			Signed in as <%= current_user.email %>. Not you?
 			<li><a href="/users/sign_out" class="logout"><%= t("web-app-theme.logout", :default => "Logout") %></a></li>

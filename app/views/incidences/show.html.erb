@@ -47,4 +47,23 @@
   </div>
 </div>
 
+<h2>Comments</h2>
+
+<div id="comments">
+	<%= render :partial => @incidence.comments %>
+</div>
+
+<% form_for [@incidence, Comment.new] do |f| %>
+  <p>
+    <%= f.label :body, "Comment Description" %><br />
+    <%= f.text_area :body %>
+  </p>
+   <%= f.hidden_field :user_id, :value => current_user.id %>
+  <p>
+    <%= f.submit "Add Comment" %>
+  </p>
+<% end %>
+
+
+
 <% content_for :sidebar, render(:partial => 'sidebar') -%>

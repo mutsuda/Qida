@@ -1,6 +1,19 @@
 class IncidencesController < ApplicationController
   # GET /incidences
   # GET /incidences.xml
+  # DELETE /incidences/1
+  # DELETE /incidences/1.xml
+  def destroy
+    @incidence = Incidence.find(params[:id])
+    @incidence.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(incidences_url) }
+      format.xml  { head :ok }
+    end
+  end
+  
+  
   def index
     @incidences = Incidence.all
 
@@ -69,15 +82,5 @@ class IncidencesController < ApplicationController
     end
   end
 
-  # DELETE /incidences/1
-  # DELETE /incidences/1.xml
-  def destroy
-    @incidence = Incidence.find(params[:id])
-    @incidence.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(incidences_url) }
-      format.xml  { head :ok }
-    end
-  end
+  
 end
