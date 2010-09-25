@@ -41,8 +41,9 @@
            <td>
             <%= incidence.status %>
           </td>
-          <% if user_signed_in? %>
-
+          
+        
+		  <% if user_signed_in? %>
           <td class="last">
                         
             <%= link_to 'Show', incidence %> 
@@ -50,8 +51,8 @@
  			| <%= link_to 'Edit', edit_incidence_path(incidence) %> | 
   			<%= link_to 'Delete', incidence, :confirm => 'Are you sure?', :method => :delete %>
   			<% end %>
-
-            <% end %>
+		  <% end %>
+            
           </td>
         </tr>          
         <% end %>

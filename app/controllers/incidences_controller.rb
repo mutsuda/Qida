@@ -1,8 +1,9 @@
 class IncidencesController < ApplicationController
-  # GET /incidences
-  # GET /incidences.xml
-  # DELETE /incidences/1
-  # DELETE /incidences/1.xml
+
+  
+  
+  #Aixo de skip before filter s'ha de solucionar d'alguna altra manera
+  skip_before_filter :verify_authenticity_token
   def destroy
     @incidence = Incidence.find(params[:id])
     @incidence.destroy
@@ -23,9 +24,13 @@ class IncidencesController < ApplicationController
     end
   end
 
+
+ 
   # GET /incidences/1
   # GET /incidences/1.xml
+  
   def show
+     
     @incidence = Incidence.find(params[:id])
 
     respond_to do |format|
@@ -33,6 +38,8 @@ class IncidencesController < ApplicationController
       format.xml  { render :xml => @incidence }
     end
   end
+  
+  
 
   # GET /incidences/new
   # GET /incidences/new.xml

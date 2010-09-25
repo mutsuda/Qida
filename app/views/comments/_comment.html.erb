@@ -3,7 +3,7 @@
 		<strong>Posted by <%= User.find_by_id(comment.user_id).email %> <%= time_ago_in_words(comment.created_at) %> ago </strong><br />
 		<%= h(comment.body) %>
 		
-		<% if current_user.id == comment.user_id %>
+		<% if user_signed_in?  &&  current_user.id == comment.user_id %>
 			<td><%= link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete %></td>
 		<% end %>
 		

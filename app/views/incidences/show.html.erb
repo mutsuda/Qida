@@ -49,16 +49,19 @@
 
 <h2>Comments</h2>
 
-<div id="comments">
+
+<div id="comments" class="inner">
 	<%= render :partial => @incidence.comments %>
 </div>
 
-<% form_for [@incidence, Comment.new] do |f| %>
+<% form_for Comment.new(:incidence =>  @incidence), :remote => true do |f| %>
   <p>
     <%= f.label :body, "Comment Description" %><br />
     <%= f.text_area :body %>
   </p>
    <%= f.hidden_field :user_id, :value => current_user.id %>
+   <%= f.hidden_field :incidence_id %>
+
   <p>
     <%= f.submit "Add Comment" %>
   </p>
