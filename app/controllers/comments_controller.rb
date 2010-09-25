@@ -68,7 +68,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to episode_path(@comment.episode) }
+      format.html { redirect_to @comment.incidence }
       format.js 
     end
   end
